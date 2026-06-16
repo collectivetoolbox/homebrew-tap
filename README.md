@@ -1,0 +1,18 @@
+# Collectivetoolbox Tap
+
+## How do I install these formulae?
+
+`brew install collectivetoolbox/tap/<formula>`
+
+Or `brew tap collectivetoolbox/tap` and then `brew install <formula>`.
+
+Or, in a `brew bundle` `Brewfile`:
+
+```ruby
+tap "collectivetoolbox/tap"
+brew "<formula>"
+```
+
+## Documentation
+
+`brew help`, `man brew` or check [Homebrew's documentation](https://docs.brew.sh).
