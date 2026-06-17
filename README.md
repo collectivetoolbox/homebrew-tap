@@ -1,4 +1,6 @@
-# Collectivetoolbox Tap
+# Collective Toolbox Tap
+
+This is a package for [Collective Toolbox](https://collectivetoolbox.com/) to install it using the [Homebrew](https://brew.sh/) package manager. It only supports Linux at this time.
 
 ## How do I install these formulae?
 
