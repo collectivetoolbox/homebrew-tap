@@ -9,11 +9,6 @@ class Ctoolbox < Formula
   # We use env :userpaths to preserve the host's rustup and musl-tools paths in CI.
   env :userpaths
 
-  # depends_on "bison" => :build
-  # depends_on "expat" => :build
-  # depends_on "libffi" => :build
-  # depends_on "meson" => :build
-  # depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
 
@@ -23,6 +18,7 @@ class Ctoolbox < Formula
   end
 
   def install
+    # bison expat libffi meson ninja
     # Extract vendor.tar inside the vendor/ directory to restore git-archived path dependencies.
     system "tar", "-xf", "vendor/vendor.tar", "-C", "vendor"
 
