@@ -13,7 +13,6 @@ class Ctoolbox < Formula
   depends_on "expat" => :build
   depends_on "libffi" => :build
   depends_on "meson" => :build
-  depends_on "musl" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
@@ -43,7 +42,7 @@ class Ctoolbox < Formula
       EOS
     end
 
-    system "rm", "./vendor/TypeScript-built.tar" # Remove the TypeScript-built tarball to avoid using it in the build
+    rm "./vendor/TypeScript-built.tar" # Remove the TypeScript-built tarball to avoid using it in the build
 
     # Run the offline build using the provided runner script (which sandboxes network access)
     system "./scripts/run-without-network", "./build", "--release", "--no-tests", "--no-docs", "linux-x64"
