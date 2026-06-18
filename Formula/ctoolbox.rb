@@ -2,24 +2,24 @@
 class Ctoolbox < Formula
   desc "Collective Toolbox: A graph‑based workspace for linking documents and data"
   homepage "https://collectivetoolbox.com/"
-  url "https://collectivetoolbox.com/releases/src/ctoolbox-src-0.1.19-75b94573c37c2c9e3f9e0d42cd3e2d6f506f2b55.tar.gz"
-  sha256 "693ea2a815cba68ef0a7edd1874eef0ef03005788fd143920ebab9cc207c3ec3"
-  version "0.1.19"
+  url "https://collectivetoolbox.com/releases/src/ctoolbox-src-0.1.22-ca730bc38359bfad79a8b042ca8c8aac5b13a743.tar.gz"
+  version "0.1.22"
+  sha256 "75ea728ccf3ad4e575c013dc0920610e0a4fd319eb2b63ef55b0ad34bcc4ff7c"
 
   # We use env :userpaths to preserve the host's rustup and musl-tools paths in CI.
   env :userpaths
 
-  depends_on "bison" => :build
-  depends_on "expat" => :build
-  depends_on "libffi" => :build
-  depends_on "meson" => :build
-  depends_on "ninja" => :build
+  # depends_on "bison" => :build
+  # depends_on "expat" => :build
+  # depends_on "libffi" => :build
+  # depends_on "meson" => :build
+  # depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
 
   resource "dependencies" do
-    url "https://collectivetoolbox.com/releases/src/ctoolbox-dependencies-0.1.19-75b94573c37c2c9e3f9e0d42cd3e2d6f506f2b55.tar.gz"
-    sha256 "065f263e11427f2cc92fe2f28bd51a6e8bfc721951377fcd76b485d6796b651c"
+    url "https://collectivetoolbox.com/releases/src/ctoolbox-dependencies-0.1.22-ca730bc38359bfad79a8b042ca8c8aac5b13a743.tar.gz"
+    sha256 "a5a310a4d2189b93bdefd7ae3e3dde9b04975515072081c39571c822401cc76b"
   end
 
   def install
