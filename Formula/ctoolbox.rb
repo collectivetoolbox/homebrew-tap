@@ -42,6 +42,8 @@ class Ctoolbox < Formula
       EOS
     end
 
+    system "rm", "./vendor/TypeScript-built.tar" # Remove the TypeScript-built tarball to avoid using it in the build
+
     # Run the build
     # Ideally this should be sandboxed without network access, but that
     # currently seems to require root on Linux.
