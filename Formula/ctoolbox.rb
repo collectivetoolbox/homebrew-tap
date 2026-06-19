@@ -36,6 +36,16 @@ class Ctoolbox < Formula
 
         [source.vendored-sources]
         directory = "vendor/ctb-vendored/vendor"
+
+        [source."https://github.com/boa-dev/boa.git"]
+        git = "https://github.com/boa-dev/boa.git"
+        rev = "ffec9244d4267406d66aef8b3c8a1d89730df5b4"
+        replace-with = "vendored-sources"
+
+        [source."https://github.com/rust-dark-light/dark-light.git"]
+        git = "https://github.com/rust-dark-light/dark-light.git"
+        rev = "0f18d2fbcaa5d1c175db8aae7d53428988d7e961"
+        replace-with = "vendored-sources"
       EOS
     end
 
