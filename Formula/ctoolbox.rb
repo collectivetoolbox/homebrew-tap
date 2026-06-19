@@ -2,9 +2,9 @@
 class Ctoolbox < Formula
   desc "Collective Toolbox: A graph‑based workspace for linking documents and data"
   homepage "https://collectivetoolbox.com/"
-  url "https://collectivetoolbox.com/releases/src/ctoolbox-src-0.1.22-ca730bc38359bfad79a8b042ca8c8aac5b13a743.tar.gz"
-  version "0.1.22"
-  sha256 "75ea728ccf3ad4e575c013dc0920610e0a4fd319eb2b63ef55b0ad34bcc4ff7c"
+  url "https://collectivetoolbox.com/releases/src/ctoolbox-src-0.1.26-a52574617ff2984fa10d19751959eb95f905f303.tar.gz"
+  version "0.1.26"
+  sha256 "47ae26cc445b69fa99668c13d25046c0ed11c333b329510f869dc77612c0240d"
 
   # We use env :userpaths to preserve the host's rustup and musl-tools paths in CI.
   env :userpaths
@@ -13,12 +13,13 @@ class Ctoolbox < Formula
   depends_on "rust" => :build
 
   resource "dependencies" do
-    url "https://collectivetoolbox.com/releases/src/ctoolbox-dependencies-0.1.22-ca730bc38359bfad79a8b042ca8c8aac5b13a743.tar.gz"
-    sha256 "a5a310a4d2189b93bdefd7ae3e3dde9b04975515072081c39571c822401cc76b"
+    url "https://collectivetoolbox.com/releases/src/ctoolbox-dependencies-0.1.26-a52574617ff2984fa10d19751959eb95f905f303.tar.gz"
+    sha256 "2e147794454fa51537a558f4780fcf893a403fb4741a6f29f082dd155e5abf03"
   end
 
   def install
     # bison expat libffi meson ninja
+    # Extract vendor.tar inside the vendor/ directory to restore git-archived path dependencies.
     system "mkdir", "-p", "vendor"
     system "tar", "-xf", "vendor.tar", "-C", "vendor"
 
@@ -38,7 +39,7 @@ class Ctoolbox < Formula
       EOS
     end
 
-    #rm_f "./vendor/TypeScript-built.tar" # Remove the TypeScript-built tarball to avoid using it in the build
+    rm_f "./vendor/TypeScript-built.tar" # Remove the TypeScript-built tarball to avoid using it in the build
 
     # Run the offline build using the provided runner script (which sandboxes network access)
     system "./scripts/run-without-network", "./build", "--release", "--no-tests", "--no-docs", "linux-x64"
