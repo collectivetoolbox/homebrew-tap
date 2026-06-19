@@ -19,8 +19,8 @@ class Ctoolbox < Formula
 
   def install
     # bison expat libffi meson ninja
-    # Extract vendor.tar inside the vendor/ directory to restore git-archived path dependencies.
-    system "tar", "-xf", "vendor/vendor.tar", "-C", "vendor"
+    system "mkdir", "-p", "vendor"
+    system "tar", "-xf", "vendor.tar", "-C", "vendor"
 
     # Stage dependencies to vendor/ctb-vendored
     (buildpath/"vendor/ctb-vendored").mkpath
@@ -38,7 +38,7 @@ class Ctoolbox < Formula
       EOS
     end
 
-    rm "./vendor/TypeScript-built.tar" # Remove the TypeScript-built tarball to avoid using it in the build
+    #rm_f "./vendor/TypeScript-built.tar" # Remove the TypeScript-built tarball to avoid using it in the build
 
     # Run the offline build using the provided runner script (which sandboxes network access)
     system "./scripts/run-without-network", "./build", "--release", "--no-tests", "--no-docs", "linux-x64"
