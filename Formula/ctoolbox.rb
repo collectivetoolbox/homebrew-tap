@@ -11,6 +11,7 @@ class Ctoolbox < Formula
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
+  depends_on "cargo-deny" => :build
 
   resource "dependencies" do
     url "https://collectivetoolbox.com/releases/src/ctoolbox-dependencies-0.1.26-a52574617ff2984fa10d19751959eb95f905f303.tar.gz"
@@ -20,7 +21,7 @@ class Ctoolbox < Formula
   def install
     # bison expat libffi meson ninja
     # Extract vendor.tar inside the vendor/ directory to restore git-archived path dependencies.
-    system "mkdir", "-p", "vendor"
+    mkdir "-p", "vendor"
     system "tar", "-xf", "vendor.tar", "-C", "vendor"
 
     # Stage dependencies to vendor/ctb-vendored
@@ -49,7 +50,7 @@ class Ctoolbox < Formula
       EOS
     end
 
-    #rm_f "./vendor/TypeScript-built.tar" # Remove the TypeScript-built tarball to avoid using it in the build
+    # rm_f "./vendor/TypeScript-built.tar" # Remove the TypeScript-built tarball to avoid using it in the build
 
     # Run the offline build using the provided runner script (which sandboxes network access)
     system "./scripts/run-without-network", "./build", "--release", "--no-tests", "--no-docs", "linux-x64"
