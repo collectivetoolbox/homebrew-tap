@@ -10,8 +10,8 @@ class Ctoolbox < Formula
   env :userpaths
 
   depends_on "pkg-config" => :build
-  depends_on "rust" => :build
   depends_on "cargo-deny" => :build
+  depends_on "rust" => :build
 
   resource "dependencies" do
     url "https://collectivetoolbox.com/releases/src/ctoolbox-dependencies-0.1.26-a52574617ff2984fa10d19751959eb95f905f303.tar.gz"
