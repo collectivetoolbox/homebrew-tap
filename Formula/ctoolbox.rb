@@ -39,7 +39,7 @@ class Ctoolbox < Formula
       EOS
     end
 
-    rm_f "./vendor/TypeScript-built.tar" # Remove the TypeScript-built tarball to avoid using it in the build
+    #rm_f "./vendor/TypeScript-built.tar" # Remove the TypeScript-built tarball to avoid using it in the build
 
     # Run the offline build using the provided runner script (which sandboxes network access)
     system "./scripts/run-without-network", "./build", "--release", "--no-tests", "--no-docs", "linux-x64"
