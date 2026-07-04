@@ -2,9 +2,9 @@
 class Ctoolbox < Formula
   desc "Collective Toolbox: A graph‑based workspace for linking documents and data"
   homepage "https://collectivetoolbox.com/"
-  url "https://collectivetoolbox.com/releases/src/ctoolbox-src-0.1.26-a52574617ff2984fa10d19751959eb95f905f303.tar.gz"
-  version "0.1.26"
-  sha256 "47ae26cc445b69fa99668c13d25046c0ed11c333b329510f869dc77612c0240d"
+  url "https://collectivetoolbox.com/releases/src/ctoolbox-src-0.1.29-6fb8b53a5c410d9a6e84ec200b12fbbd38289d06.tar.gz"
+  version "0.1.29"
+  sha256 "a5711b565c57a6f3438b418a86f3b60ed031e440595674bd3469df64cdb04577"
 
   # We use env :userpaths to preserve the host's rustup and musl-tools paths in CI.
   env :userpaths
@@ -14,8 +14,8 @@ class Ctoolbox < Formula
   depends_on "rust" => :build
 
   resource "dependencies" do
-    url "https://collectivetoolbox.com/releases/src/ctoolbox-dependencies-0.1.26-a52574617ff2984fa10d19751959eb95f905f303.tar.gz"
-    sha256 "2e147794454fa51537a558f4780fcf893a403fb4741a6f29f082dd155e5abf03"
+    url "https://collectivetoolbox.com/releases/src/ctoolbox-dependencies-0.1.29-6fb8b53a5c410d9a6e84ec200b12fbbd38289d06.tar.gz"
+    sha256 "15e35b65f58d4d846d888bfbb6c06d9034b429bd4b190cf4d7bb61d81aaa1ea7"
   end
 
   def install
@@ -50,7 +50,7 @@ class Ctoolbox < Formula
       EOS
     end
 
-    # rm_f "./vendor/TypeScript-built.tar" # Remove the TypeScript-built tarball to avoid using it in the build
+    rm_f "./vendor/TypeScript-built.tar" # Remove the TypeScript-built tarball to avoid using it in the build
 
     # Run the offline build using the provided runner script (which sandboxes network access)
     system "./scripts/run-without-network", "./build", "--release", "--no-tests", "--no-docs", "linux-x64"
