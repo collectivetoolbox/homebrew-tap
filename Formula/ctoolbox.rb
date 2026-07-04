@@ -2,9 +2,9 @@
 class Ctoolbox < Formula
   desc "Collective Toolbox: A graph‑based workspace for linking documents and data"
   homepage "https://collectivetoolbox.com/"
-  url "https://collectivetoolbox.com/releases/src/ctoolbox-src-0.1.40-9cb941114b45041707cad54df448f7ae5fa6058a.tar.gz"
-  version "0.1.40"
-  sha256 "d427afb2080db5f773870cc85c5f88898dcba7227a9b54a4a7d22e9f47c1e8d9"
+  url "https://collectivetoolbox.com/releases/src/ctoolbox-src-0.1.41-d993453f5fe0590c68b030e745f912334ade5cf9.tar.gz"
+  version "0.1.41"
+  sha256 "c87c0cef214e9809e0b427af018cc6812fe8ef1ddd3df82f551ba44672634838"
 
   # We use env :userpaths to preserve the host's rustup and musl-tools paths in CI.
   env :userpaths
@@ -14,8 +14,8 @@ class Ctoolbox < Formula
   depends_on "rust" => :build
 
   resource "dependencies" do
-    url "https://collectivetoolbox.com/releases/src/ctoolbox-dependencies-0.1.40-9cb941114b45041707cad54df448f7ae5fa6058a.tar.gz"
-    sha256 "70660ab56aff9fa4ab0eee0cb58916e995150743e19760c496398b755fcdcf1c"
+    url "https://collectivetoolbox.com/releases/src/ctoolbox-dependencies-0.1.41-d993453f5fe0590c68b030e745f912334ade5cf9.tar.gz"
+    sha256 "495460815b86442c1c20150682191b0e72b6bd74cd6b49caf3aa27147f8133c3"
   end
 
   def install
