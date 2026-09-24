@@ -58,7 +58,7 @@ class Ctoolbox < Formula
 
     # Install the binaries
     bin.install "built/linux-x64/ctoolbox"
-    bin.install "built/linux-x64/ctoolbox.rsrc"
+    bin.install "built/ctoolbox.rsrc"
   end
 
   test do
