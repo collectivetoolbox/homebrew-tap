@@ -3,14 +3,13 @@ class Ctoolbox < Formula
   desc "Collective Toolbox: A graph‑based workspace for linking documents and data"
   homepage "https://collectivetoolbox.com/"
   url "https://collectivetoolbox.com/releases/src/ctoolbox-src-0.1.49-b72893b1b3fc40b5dc2adff8efd665338f0c738a.tar.gz"
-  version "0.1.49"
   sha256 "1ce0a10d1867f7834820ce3fddfa2924c0c7bd379d9d7c9ef1d9a77ac6056cfd"
 
   # We use env :userpaths to preserve the host's rustup and musl-tools paths in CI.
   env :userpaths
 
-  depends_on "pkg-config" => :build
   depends_on "cargo-deny" => :build
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build
 
   resource "dependencies" do
@@ -50,7 +49,7 @@ class Ctoolbox < Formula
       EOS
     end
 
-    rm_f "./vendor/TypeScript-built.tar" # Remove the TypeScript-built tarball to avoid using it in the build
+    rm "./vendor/TypeScript-built.tar" # Remove the TypeScript-built tarball to avoid using it in the build
 
     # Run the offline build using the provided runner script (which sandboxes network access)
     system "./scripts/run-without-network", "./build", "--release", "--no-tests", "--no-docs", "linux-x64"
